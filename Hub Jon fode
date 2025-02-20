@@ -111,11 +111,11 @@ local JumpPowerSlider = Main:CreateSlider({
    end,
 })
 
-local Prision Life = Window:CreateTab("Prison Life",127206141258709) -- Title, Image
-local Section = Prision Life:CreateSection("Prision Life") -- The 2nd argument is to tell if its only a Title and doesnt contain elements
+local PrisionLife = Window:CreateTab("Prison Life",127206141258709) -- Title, Image
+local Section = PrisionLife:CreateSection("Prision Life") -- The 2nd argument is to tell if its only a Title and doesnt contain elements
 
 
-local Buttonprisionlife1 = Prision Life:CreateButton({
+local Buttonprisionlife1 = PrisionLife:CreateButton({
    Name = "Prizz Admin",
    Info = "GOD MODE, Kill all", -- Speaks for itself, Remove if none.
    Interact = 'Button',
@@ -123,7 +123,7 @@ local Buttonprisionlife1 = Prision Life:CreateButton({
       loadstring(game:HttpGet('https://raw.githubusercontent.com/elliexmln/PrizzLife/main/pladmin.lua'))()
       end,
 })
-local Buttonprisionlife2 = Prision Life:CreateButton({
+local Buttonprisionlife2 = PrisionLife:CreateButton({
    Name = "Menu OP/PC",
    Info = "Aimbot,Wallhack", -- Speaks for itself, Remove if none.
    Interact = 'Button',
@@ -131,7 +131,7 @@ local Buttonprisionlife2 = Prision Life:CreateButton({
       loadstring(game:HttpGet("https://raw.githubusercontent.com/GwnStefano/NexusHub/main/Main", true))()
       end,
 })
-local Buttonprisionlife3 = Prision Life:CreateButton({
+local Buttonprisionlife3 = PrisionLife:CreateButton({
    Name = "Reviz Admin",
    Info = "Commands simples", -- Speaks for itself, Remove if none.
    Interact = 'Button',
@@ -140,7 +140,7 @@ local Buttonprisionlife3 = Prision Life:CreateButton({
       end,
 })
 
-local Buttonprisionlife4 = Prision Life:CreateButton({
+local Buttonprisionlife4 = PrisionLife:CreateButton({
    Name = "Lightux Gui",
    Info = "Gui", -- Speaks for itself, Remove if none.
    Interact = 'Button',
@@ -149,7 +149,7 @@ local Buttonprisionlife4 = Prision Life:CreateButton({
       end,
 })
 
-local Buttonprisionlife5 = Prision Life:CreateButton({
+local Buttonprisionlife5 = PrisionLife:CreateButton({
    Name = "ArDrak Hub",
    Info = "Gui", -- Speaks for itself, Remove if none.
    Interact = 'Button',
@@ -560,6 +560,18 @@ local ButtonSpeedLegends3 = SpeedLegends:CreateButton({
       end,
 })
 
+-- Tu código original va aquí
 
+-- Referencia al GUI que deseas cerrar
+local gui = game.Players.LocalPlayer:WaitForChild("PlayerGui"):WaitForChild("NombreDelGUI")  -- Cambia "NombreDelGUI" por el nombre real de tu GUI
 
+local UserInputService = game:GetService("UserInputService")
+
+UserInputService.InputBegan:Connect(function(input, gameProcessed)
+    -- Verifica si se presionó el Ctrl derecho
+    if not gameProcessed and input.UserInputType == Enum.UserInputType.Keyboard and input.KeyCode == Enum.KeyCode.RightControl then
+        -- Desactiva el GUI
+        gui.Enabled = false
+    end
+end)
 
